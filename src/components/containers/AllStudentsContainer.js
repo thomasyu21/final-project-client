@@ -29,7 +29,7 @@ class AllStudentsContainer extends Component {
       <div>
         <Header />
         <AllStudentsView 
-          students={this.props.allStudents}
+          students={this.props.allStudents.sort((a, b) => a.id - b.id)}
           deleteStudent={this.props.deleteStudent}   
         />
       </div>
