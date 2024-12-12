@@ -21,6 +21,9 @@ class NewStudentContainer extends Component {
       firstname: "", 
       lastname: "", 
       campusId: null, 
+      email: "",
+      imageUrl: "https://picsum.photos/200",
+      gpa: null,
       redirect: false, 
       redirectId: null
     };
@@ -36,13 +39,15 @@ class NewStudentContainer extends Component {
   // Take action after user click the submit button
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
-
     let student = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
-        campusId: this.state.campusId
+        campusId: this.state.campusId,
+        email: this.state.email,
+        imageUrl: this.state.imageUrl,
+        gpa: this.state.gpa
     };
-    
+
     // Add new student in back-end database
     let newStudent = await this.props.addStudent(student);
 
@@ -51,6 +56,9 @@ class NewStudentContainer extends Component {
       firstname: "", 
       lastname: "", 
       campusId: null, 
+      email: "",
+      imageUrl: "https://picsum.photos/200",
+      gpa: null,
       redirect: true, 
       redirectId: newStudent.id
     });
