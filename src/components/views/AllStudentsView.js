@@ -25,7 +25,7 @@ const AllStudentsView = (props) => {
     <div>
       <h1>All Students</h1>
 
-      {students.map((student) => {
+      {students.sort((a, b) => a.id-b.id).map((student) => {
           let name = student.firstname + " " + student.lastname;
           return (
             <div key={student.id}>
