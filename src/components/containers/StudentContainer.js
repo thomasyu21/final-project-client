@@ -23,7 +23,7 @@ class StudentContainer extends Component {
     return (
       <div>
         <Header />
-        <StudentView student={this.props.student} />
+        <StudentView student={this.props.student} deleteStudent={this.props.deleteStudent} />
       </div>
     );
   }
