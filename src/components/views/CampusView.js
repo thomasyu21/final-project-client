@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 // Take in props data to construct the component
 const CampusView = (props) => {
-  const {campus} = props;
+  const {campus, removeStudent} = props;
   
   if (campus.imageUrl === null){
     campus.imageUrl = "https://images.unsplash.com/photo-1567878874047-4ee47c135328"
@@ -46,14 +46,15 @@ const CampusView = (props) => {
       <Link to={`/enrollstudent/${campus.id}`}>
         <button>Enroll New Student</button>
       </Link>
-      {campus.students.map( student => {
+      {campus.students.sort((a, b) => a.id-b.id).map( student => {
         let name = student.firstname + " " + student.lastname;
         return (
           <div key={student.id}>
             <hr/>
             <Link to={`/student/${student.id}`}>
               <h2>{name}</h2>
-            </Link>             
+            </Link>
+            <button onClick={() => removeStudent(student)}>Unenroll</button>      
           </div>
         );
       })}
