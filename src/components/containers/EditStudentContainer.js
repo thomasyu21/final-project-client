@@ -49,7 +49,7 @@ class EditStudentContainer extends Component {
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
     if (this.state.campusId === ""){
-      this.state.campusId = null
+      this.setState({campusId: null})
     }
     let student = {
         id: this.props.student.id,
