@@ -36,7 +36,7 @@ const useStyles = makeStyles( () => ({
 }));
 
 const EditStudentView = (props) => {
-  const { student, handleChange, handleSubmit } = props;
+  const { student, handleChange, handleSubmit, campusIds } = props;
   const classes = useStyles();
 
   if (student.gpa == null){
@@ -70,7 +70,9 @@ const EditStudentView = (props) => {
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus Id: </label>
-            <input type="number" name="campusId" step="1" defaultValue={student.campusId} onChange={(e) => handleChange(e)} />
+            <select name="campusId" defaultValue={student.campusId} onChange={(e) => handleChange(e)}>
+              { campusIds }
+            </select>
             <br/>
             <br/>
 

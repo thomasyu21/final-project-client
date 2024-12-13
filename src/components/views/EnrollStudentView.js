@@ -62,7 +62,9 @@ const EnrollStudentView = (props) => {
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus Id: </label>
-            <input type="number" name="campusId" step="1" value={campus.id} disabled="disabled" />
+            <select name="campusId" value={campus.id} onChange={(e) => handleChange(e)} disabled>
+              <option value={campus.id}>{campus.id}</option>
+            </select>
             <br/>
             <br/>
 
