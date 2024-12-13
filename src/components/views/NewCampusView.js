@@ -32,6 +32,11 @@ const useStyles = makeStyles( () => ({
     borderRadius: '5px 5px 0px 0px',
     padding: '3px'
   },
+  descriptionInput:{
+    maxWidth: "350px",
+    minWidth: "250px",
+    minHeight: "50px"
+  }
 }));
 
 const NewCampusView = (props) => {
@@ -67,7 +72,7 @@ const NewCampusView = (props) => {
             <br/>
 
             <label style= {{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
-            <input type="text" name="description" onChange ={(e) => handleChange(e)} required/>
+            <textarea className={classes.descriptionInput} type="text" name="description" onChange ={(e) => handleChange(e)} required/>
             <br/>
             <br/>
 
